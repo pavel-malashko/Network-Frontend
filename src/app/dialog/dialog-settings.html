@@ -1,0 +1,166 @@
+<div class="contain">
+
+    <div class="eth-st container pt-2">
+
+        <h6 class="font-weight-bold">Ethernet Settings</h6>
+
+        <mat-radio-group [(ngModel)]="validEnthIP" (change)="handleChange()">
+            <mat-radio-button color="primary"  [value]="false"  class="my-radio">
+                Obtain an IP address automatically (DHCP/BootP)
+            </mat-radio-button><br>
+            <mat-radio-button color="primary"  [value]="true"  class="my-radio">
+                Use the following IP address: 
+            </mat-radio-button>
+        </mat-radio-group>
+
+        <form [formGroup]="networkSettings" [ngStyle]="!validEnthIP && {'opacity':'0.4'} || {'opacity': '1'}"> 
+
+            <div class="d-flex flex-column justify-content-center"> 
+
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="IP address" type="text" formControlName="enthIP">
+                    <mat-error *ngIf="networkSettings.get('enthIP').invalid && networkSettings.get('enthIP').touched">Please entering some value!</mat-error>
+                </mat-form-field>                                                                                                                                               
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="Subnet Mask" type="text" formControlName="enthMask">
+                    <mat-error *ngIf="networkSettings.get('enthMask').invalid && networkSettings.get('enthMask').touched">Please entering some value!</mat-error>
+                </mat-form-field>
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="Default Gateway" type="text" formControlName="enthGateWay">
+                </mat-form-field>
+
+            </div>    
+
+        </form>
+
+        <mat-radio-group [(ngModel)]="validEnthDNS" (change)="handleChange()">
+
+            <mat-radio-button  color="primary"  [value]="false">
+                Obtain an DNS address automatically
+            </mat-radio-button><br>
+            <mat-radio-button  color="primary"   [value]="true" >
+                Use the following DS server address: 
+            </mat-radio-button>
+
+        </mat-radio-group>
+
+        <form [formGroup]="networkSettings" [ngStyle]="!validEnthDNS && {'opacity':'0.4'} || {'opacity': '1'}"> 
+
+            <div class="d-flex flex-column">
+
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="Prefender DNS server" type="text" formControlName="enthPrefDNS">
+                    <mat-error *ngIf="networkSettings.get('enthPrefDNS').invalid && enthPrefDNS.get('enthPrefDNS').touched">Please entering some value!</mat-error>
+                </mat-form-field>                                                                                                                                               
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="Alternative DNS server" type="text" formControlName="enthAltDNS">
+                </mat-form-field>
+
+            </div> 
+
+        </form>
+
+    </div>
+    
+    <div class="wir-st container pt-2">
+
+        <h6 class="font-weight-bold">Wireless Settings</h6>
+
+        <form [formGroup]="networkSettings" > 
+
+            <div class="d-flex flex-column">
+
+                <mat-checkbox  [(ngModel)]="enableWifi"  [ngModelOptions]="{standalone: true}" (change)="handleChange()" [value]="false">Enable wifi:</mat-checkbox>
+               
+                <div class="d-flex justify-content-center">
+                    <mat-form-field class="st-field" [ngStyle]="!enableWifi && {'opacity':'0.4'} || {'opacity': '1'}">
+                        
+                  
+                            <mat-label >Please Select</mat-label>
+                  
+                        <mat-select formControlName="wirelNetName">
+                            <mat-option *ngFor="let wirelVal of wirelData" [value]="wirelVal">
+                                {{wirelVal.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="networkSettings.get('wirelNetName').invalid && networkSettings.get('wirelNetName').touched">Please entering some value!</mat-error> 
+                    </mat-form-field>
+                    <div (click)="ResetWirelName()" class="m-3 cursor-pointer"><img src="assets/image/refresh_icon.svg" ></div>  
+                </div>
+               
+                <mat-checkbox  [(ngModel)]="enableKey"  [ngModelOptions]="{standalone: true}" (change)="handleChange()" [value]="false">Enable Wireless Security:</mat-checkbox>
+
+                <mat-form-field class="st-field" [ngStyle]="!enableKey && {'opacity':'0.4'} || {'opacity': '1'}">
+                    <input matInput placeholder="Security Key" type="text" formControlName="wirelSecKey">
+                    <mat-error *ngIf="networkSettings.get('wirelSecKey').invalid && networkSettings.get('wirelSecKey').touched">Please entering some value!</mat-error>
+                </mat-form-field> 
+
+            </div>  
+
+        </form>
+        
+        <mat-radio-group [(ngModel)]="validWirelIP" (change)="handleChange()">
+
+            <mat-radio-button  color="primary"  [value]="false">
+                Obtain an IP address automatically (DHCP/BootP)
+            </mat-radio-button><br>
+            <mat-radio-button color="primary"  [value]="true">
+                Use the following IP address: 
+            </mat-radio-button>
+
+        </mat-radio-group>
+
+        <form [formGroup]="networkSettings" [ngStyle]="!validWirelIP && {'opacity':'0.4'} || {'opacity': '1'}">
+
+            <div class="d-flex flex-column">
+
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="IP address" type="text" formControlName="wirelIP">
+                    <mat-error *ngIf="networkSettings.get('wirelIP').invalid && networkSettings.get('wirelIP').touched">Please entering some value!</mat-error>
+                </mat-form-field>                                                                                                                                               
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="Subnet Mask" type="text" formControlName="wirelMask">
+                    <mat-error *ngIf="networkSettings.get('wirelPrefDNS').invalid && networkSettings.get('wirelMask').touched">Please entering some value!</mat-error>
+                </mat-form-field>
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="Default Gateway" type="text" formControlName="wirelGateWay">
+                </mat-form-field>
+
+            </div> 
+
+        </form>
+
+        <mat-radio-group [(ngModel)]="validWirelDNS" (change)="handleChange()">
+
+            <mat-radio-button  color="primary"  [value]="false">
+                Obtain an DNS address automatically
+            </mat-radio-button><br>
+
+            <mat-radio-button color="primary"   [value]="true" >
+                Use the following DS server address: 
+            </mat-radio-button>
+
+        </mat-radio-group>
+
+        <form [formGroup]="networkSettings" [ngStyle]="!validWirelDNS && {'opacity':'0.4'} || {'opacity': '1'}"> 
+
+            <div class="d-flex flex-column">
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="Prefender DNS server" type="text" formControlName="wirelPrefDNS">
+                    <mat-error *ngIf="networkSettings.get('wirelPrefDNS').invalid && networkSettings.get('wirelPrefDNS').touched">Please entering some value!</mat-error>
+                </mat-form-field>                                                                                                                                                           
+                <mat-form-field class="st-field">
+                    <input matInput placeholder="Alternative DNS server" type="text" formControlName="wirelAltDNS">
+                </mat-form-field>
+            </div> 
+
+        </form>
+
+    </div> 
+
+     <div class="footer-st">
+        <button class="m-3" mat-raised-button (click)="SaveConfigNetwork()" cdkFocusInitial color="primary">Save</button>
+        <button class="m-3" mat-stroked-button (click)="cancelForm()">Cancel</button>
+    </div> 
+
+</div>

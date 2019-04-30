@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle{
+    background-color: #00bfff!important;
+}
+
+.mat-radio-button.mat-primary .mat-radio-inner-circle, .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-primary:active .mat-radio-persistent-ripple{
+    background-color: white!important;
+}
+
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle{
+    border-color: #00bfff!important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{
+    background-color: #00bfff;
+}
+
+.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element{
+    background-color: #00bfff;
+}
+
+.mat-snack-bar-container, .ng-tns-c9-1, .ng-trigger.ng-trigger-state .danger .mat-snack-bar-top .ng-star-inserted{
+    background: #ff9393 !important;
+}
+
+.mat-snack-bar-container, .ng-tns-c9-1, .ng-trigger.ng-trigger-state .success .mat-snack-bar-top .ng-star-inserted{
+    background: #00bfff !important;
+}

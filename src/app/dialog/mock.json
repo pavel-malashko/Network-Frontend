@@ -1,0 +1,44 @@
+[
+  {
+    "favorite": true,
+    "name": "atari98",
+    "strength": 32,
+    "security": ["psk"]
+  },
+  {
+    "favorite": false,
+    "name": "olson",
+    "strength": 91,
+    "security": ["psk"]
+  },
+  {
+    "favorite": false,
+    "name": "1990Wiley",
+    "strength": 64,
+    "security": ["psk", "wps"]
+  },
+  {
+    "favorite": false,
+    "name": "Guzman",
+    "strength": 12,
+    "security": ["wps"]
+  },
+  {
+    "favorite": true,
+    "name": "KPetersen86",
+    "strength": 95,
+    "security": ["wps"]
+  },
+  {
+    "favorite": false,
+    "name": "GillespIE",
+    "strength": 84,
+    "security": ["psk"]
+  },
+  {
+    "favorite": false,
+    "name": "patton",
+    "strength": 40,
+    "security": ["psk", "wps"]
+  }
+]

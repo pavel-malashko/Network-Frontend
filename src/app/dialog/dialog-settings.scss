@@ -1,0 +1,41 @@
+.contain{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #d8d8d8;
+    flex-wrap: wrap;
+    height: 100%; 
+}
+.wir-st{
+    width: 50%;
+    height: 92%;
+    border-left: 1px solid #d8d8d8;
+}
+.eth-st{
+    width: 50%;
+    height: 92%;
+    display: flex;
+    flex-direction: column;
+}
+.footer-st{
+    border-top: 1px solid #d8d8d8;
+    width: 100%; 
+    align-items: center;
+}
+.mat-raised-button {
+    background-color:#00bfff;
+    width: 100px;
+    border-radius: 40px;
+} 
+.mat-stroked-button{
+    width: 100px;
+    border-radius: 40px;
+    color: #00bfff;
+    border-color: #00bfff;
+}
+.st-field{
+    width: 300px;
+    align-self: center;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
